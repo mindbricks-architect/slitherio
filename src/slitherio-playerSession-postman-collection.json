@@ -1,0 +1,169 @@
+{
+  "info": {
+    "name": "slitherio-playersession-service API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "createPlayerSession",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "ExampleValue",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"playerSessionId\": \"ID\",\n  \"displayName\": \"String\",\n  \"sessionToken\": \"String\",\n  \"connectionStatus\": \"Enum\",\n  \"lastKnownAvatarId\": \"String\",\n  \"joinTime\": \"Date\",\n  \"leaveTime\": \"Date\",\n  \"finalScore\": \"Integer\",\n  \"finalRank\": \"Integer\",\n  \"reconnectExpiry\": \"Date\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{serviceUrl}}//v1/playersessions",
+          "host": [
+            "{{serviceUrl}}"
+          ],
+          "path": [
+            "v1",
+            "playersessions"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "updatePlayerSession",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "ExampleValue",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PATCH",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"displayName\": \"String\",\n  \"connectionStatus\": \"Enum\",\n  \"lastKnownAvatarId\": \"String\",\n  \"leaveTime\": \"Date\",\n  \"finalScore\": \"Integer\",\n  \"finalRank\": \"Integer\",\n  \"reconnectExpiry\": \"Date\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{serviceUrl}}//v1/playersessions/:playerSessionId",
+          "host": [
+            "{{serviceUrl}}"
+          ],
+          "path": [
+            "v1",
+            "playersessions",
+            ":playerSessionId"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "deletePlayerSession",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "ExampleValue",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{serviceUrl}}//v1/playersessions/:playerSessionId",
+          "host": [
+            "{{serviceUrl}}"
+          ],
+          "path": [
+            "v1",
+            "playersessions",
+            ":playerSessionId"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "getPlayerSession",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "ExampleValue",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{serviceUrl}}//v1/playersessions/:playerSessionId",
+          "host": [
+            "{{serviceUrl}}"
+          ],
+          "path": [
+            "v1",
+            "playersessions",
+            ":playerSessionId"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "listPlayerSessions",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "ExampleValue",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{serviceUrl}}//v1/playersessions",
+          "host": [
+            "{{serviceUrl}}"
+          ],
+          "path": [
+            "v1",
+            "playersessions"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+
+syntax = "proto3";
+
+package playerSession;
+
+import "google/protobuf/struct.proto";
+import "google/protobuf/timestamp.proto";
+message playerSession {
+    string id = 1;
+    string displayName = 2;
+    string sessionToken = 3;
+    int32 connectionStatus = 4;
+    string lastKnownAvatarId = 5;
+    google.protobuf.Timestamp joinTime = 6;
+    google.protobuf.Timestamp leaveTime = 7;
+    int32 finalScore = 8;
+    int32 finalRank = 9;
+    google.protobuf.Timestamp reconnectExpiry = 10;
+}
+
+
+
+
+message VoidRequest {}
+
+message CurrentUserReply {
+    string userId = 1;
+    string sessionId = 2;
+    string fullname = 3;
+    string email = 4;
+    string roleId = 5;
+    string avatar = 6;
+    bool emailVerified = 7;
+        string accessToken = 8;
+}
+
+message HelloMessageReply {
+    string hello = 1;
+}
+
+service playerSessionService {
+    rpc currentUser(VoidRequest) returns (CurrentUserReply);
+    rpc helloMessage(VoidRequest) returns (HelloMessageReply);
+}

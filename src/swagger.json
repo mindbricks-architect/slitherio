@@ -1,0 +1,1212 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "slitherio-playersession-service API",
+    "description": "Manages anonymous, ephemeral game session participation for instant join, leave, disconnect detection, reconnection, temporary guest identity assignment, and live active player tracking in a single shared environment.",
+    "version": "1.0.0"
+  },
+  "servers": [],
+  "paths": {
+    "/v1/playersessions": {
+      "post": {
+        "tags": [
+          "playerSession"
+        ],
+        "summary": "The createPlayerSession API has 9 parameters.",
+        "description": "createPlayerSession",
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/createPlayerSession"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/createPlayerSession"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/createPlayerSession"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Response JSON represents the most comprehensive form of the **playerSession** object in the response. However, some properties may be omitted based on the object&#39;s internal logic.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/createPlayerSession-Response"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/createPlayerSession-Response"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/createPlayerSession-Response"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request was improperly formatted or contained invalid parameters, preventing the server from processing it.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The request lacked valid authentication credentials or the credentials provided do not grant access to the requested resource.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested resource was not found on the server.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The server encountered an unexpected condition that prevented it from fulfilling the request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "playerSessions"
+        ],
+        "summary": "The listPlayerSessions API has no parameters.",
+        "description": "listPlayerSessions",
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/listPlayerSessions"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/listPlayerSessions"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/listPlayerSessions"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Response JSON represents the most comprehensive form of the **playerSessions** object in the response. However, some properties may be omitted based on the object&#39;s internal logic.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/listPlayerSessions-Response"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/listPlayerSessions-Response"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/listPlayerSessions-Response"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request was improperly formatted or contained invalid parameters, preventing the server from processing it.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The request lacked valid authentication credentials or the credentials provided do not grant access to the requested resource.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested resource was not found on the server.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The server encountered an unexpected condition that prevented it from fulfilling the request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/playersessions/:playerSessionId": {
+      "patch": {
+        "tags": [
+          "playerSession"
+        ],
+        "summary": "The updatePlayerSession API has 8 parameters.",
+        "description": "updatePlayerSession",
+        "parameters": [
+          {
+            "name": "playerSessionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/updatePlayerSession"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/updatePlayerSession"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/updatePlayerSession"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Response JSON represents the most comprehensive form of the **playerSession** object in the response. However, some properties may be omitted based on the object&#39;s internal logic.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/updatePlayerSession-Response"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/updatePlayerSession-Response"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/updatePlayerSession-Response"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request was improperly formatted or contained invalid parameters, preventing the server from processing it.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The request lacked valid authentication credentials or the credentials provided do not grant access to the requested resource.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested resource was not found on the server.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The server encountered an unexpected condition that prevented it from fulfilling the request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "playerSession"
+        ],
+        "summary": "The deletePlayerSession API has 1 parameter.",
+        "description": "deletePlayerSession",
+        "parameters": [
+          {
+            "name": "playerSessionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/deletePlayerSession"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/deletePlayerSession"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/deletePlayerSession"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Response JSON represents the most comprehensive form of the **playerSession** object in the response. However, some properties may be omitted based on the object&#39;s internal logic.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/deletePlayerSession-Response"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/deletePlayerSession-Response"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/deletePlayerSession-Response"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request was improperly formatted or contained invalid parameters, preventing the server from processing it.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The request lacked valid authentication credentials or the credentials provided do not grant access to the requested resource.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested resource was not found on the server.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The server encountered an unexpected condition that prevented it from fulfilling the request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "playerSession"
+        ],
+        "summary": "The getPlayerSession API has 1 parameter.",
+        "description": "getPlayerSession",
+        "parameters": [
+          {
+            "name": "playerSessionId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/getPlayerSession"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/getPlayerSession"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/getPlayerSession"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Response JSON represents the most comprehensive form of the **playerSession** object in the response. However, some properties may be omitted based on the object&#39;s internal logic.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/getPlayerSession-Response"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/getPlayerSession-Response"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/getPlayerSession-Response"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request was improperly formatted or contained invalid parameters, preventing the server from processing it.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "The request lacked valid authentication credentials or the credentials provided do not grant access to the requested resource.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The requested resource was not found on the server.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "The server encountered an unexpected condition that prevented it from fulfilling the request.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ErrorResponse": {
+        "type": "object",
+        "properties": {
+          "result": {
+            "type": "string"
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string"
+          },
+          "errCode": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "date": {
+            "type": "string"
+          },
+          "detail": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "createPlayerSession": {
+        "type": "object",
+        "properties": {
+          "displayName": {
+            "type": "string",
+            "nullable": true
+          },
+          "sessionToken": {
+            "type": "string",
+            "nullable": false
+          },
+          "connectionStatus": {
+            "type": "string",
+            "nullable": false
+          },
+          "lastKnownAvatarId": {
+            "type": "string",
+            "nullable": true
+          },
+          "joinTime": {
+            "type": "string",
+            "nullable": false
+          },
+          "leaveTime": {
+            "type": "string",
+            "nullable": true
+          },
+          "finalScore": {
+            "type": "string",
+            "nullable": true
+          },
+          "finalRank": {
+            "type": "string",
+            "nullable": true
+          },
+          "reconnectExpiry": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "listPlayerSessions": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "updatePlayerSession": {
+        "type": "object",
+        "properties": {
+          "displayName": {
+            "type": "string",
+            "nullable": true
+          },
+          "connectionStatus": {
+            "type": "string",
+            "nullable": false
+          },
+          "lastKnownAvatarId": {
+            "type": "string",
+            "nullable": true
+          },
+          "leaveTime": {
+            "type": "string",
+            "nullable": true
+          },
+          "finalScore": {
+            "type": "string",
+            "nullable": true
+          },
+          "finalRank": {
+            "type": "string",
+            "nullable": true
+          },
+          "reconnectExpiry": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "deletePlayerSession": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "getPlayerSession": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "createPlayerSession-Response": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "statusCode": {
+            "type": "string"
+          },
+          "elapsedMs": {
+            "type": "number"
+          },
+          "ssoTime": {
+            "type": "number"
+          },
+          "source": {
+            "type": "string"
+          },
+          "cacheKey": {
+            "type": "string"
+          },
+          "userId": {
+            "type": "string"
+          },
+          "sessionId": {
+            "type": "string"
+          },
+          "requestId": {
+            "type": "string"
+          },
+          "dataName": {
+            "type": "string"
+          },
+          "method": {
+            "type": "string"
+          },
+          "action": {
+            "type": "string"
+          },
+          "appVersion": {
+            "type": "string"
+          },
+          "rowCount": {
+            "type": "number"
+          },
+          "playerSession": {
+            "$ref": "#/components/schemas/playerSession-object"
+          }
+        }
+      },
+      "listPlayerSessions-Response": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "statusCode": {
+            "type": "string"
+          },
+          "elapsedMs": {
+            "type": "number"
+          },
+          "ssoTime": {
+            "type": "number"
+          },
+          "source": {
+            "type": "string"
+          },
+          "cacheKey": {
+            "type": "string"
+          },
+          "userId": {
+            "type": "string"
+          },
+          "sessionId": {
+            "type": "string"
+          },
+          "requestId": {
+            "type": "string"
+          },
+          "dataName": {
+            "type": "string"
+          },
+          "method": {
+            "type": "string"
+          },
+          "action": {
+            "type": "string"
+          },
+          "appVersion": {
+            "type": "string"
+          },
+          "rowCount": {
+            "type": "string"
+          },
+          "playerSessions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/playerSessions-object"
+            }
+          },
+          "paging": {
+            "$ref": "#/components/schemas/paging-object"
+          },
+          "filters": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "uiPermissions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "updatePlayerSession-Response": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "statusCode": {
+            "type": "string"
+          },
+          "elapsedMs": {
+            "type": "number"
+          },
+          "ssoTime": {
+            "type": "number"
+          },
+          "source": {
+            "type": "string"
+          },
+          "cacheKey": {
+            "type": "string"
+          },
+          "userId": {
+            "type": "string"
+          },
+          "sessionId": {
+            "type": "string"
+          },
+          "requestId": {
+            "type": "string"
+          },
+          "dataName": {
+            "type": "string"
+          },
+          "method": {
+            "type": "string"
+          },
+          "action": {
+            "type": "string"
+          },
+          "appVersion": {
+            "type": "string"
+          },
+          "rowCount": {
+            "type": "number"
+          },
+          "playerSession": {
+            "$ref": "#/components/schemas/playerSession-object"
+          }
+        }
+      },
+      "deletePlayerSession-Response": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "statusCode": {
+            "type": "string"
+          },
+          "elapsedMs": {
+            "type": "number"
+          },
+          "ssoTime": {
+            "type": "number"
+          },
+          "source": {
+            "type": "string"
+          },
+          "cacheKey": {
+            "type": "string"
+          },
+          "userId": {
+            "type": "string"
+          },
+          "sessionId": {
+            "type": "string"
+          },
+          "requestId": {
+            "type": "string"
+          },
+          "dataName": {
+            "type": "string"
+          },
+          "method": {
+            "type": "string"
+          },
+          "action": {
+            "type": "string"
+          },
+          "appVersion": {
+            "type": "string"
+          },
+          "rowCount": {
+            "type": "number"
+          },
+          "playerSession": {
+            "$ref": "#/components/schemas/playerSession-object"
+          }
+        }
+      },
+      "getPlayerSession-Response": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "statusCode": {
+            "type": "string"
+          },
+          "elapsedMs": {
+            "type": "number"
+          },
+          "ssoTime": {
+            "type": "number"
+          },
+          "source": {
+            "type": "string"
+          },
+          "cacheKey": {
+            "type": "string"
+          },
+          "userId": {
+            "type": "string"
+          },
+          "sessionId": {
+            "type": "string"
+          },
+          "requestId": {
+            "type": "string"
+          },
+          "dataName": {
+            "type": "string"
+          },
+          "method": {
+            "type": "string"
+          },
+          "action": {
+            "type": "string"
+          },
+          "appVersion": {
+            "type": "string"
+          },
+          "rowCount": {
+            "type": "number"
+          },
+          "playerSession": {
+            "$ref": "#/components/schemas/playerSession-object"
+          }
+        }
+      },
+      "playerSession-object": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "_owner": {
+            "type": "string"
+          },
+          "displayName": {
+            "type": "string"
+          },
+          "sessionToken": {
+            "type": "string"
+          },
+          "connectionStatus": {
+            "type": "string"
+          },
+          "connectionStatus_": {
+            "type": "string"
+          },
+          "lastKnownAvatarId": {
+            "type": "string"
+          },
+          "joinTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "leaveTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "finalScore": {
+            "type": "string"
+          },
+          "finalRank": {
+            "type": "string"
+          },
+          "reconnectExpiry": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "recordVersion": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "isActive": {
+            "type": "boolean"
+          }
+        }
+      },
+      "playerSessions-object": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "_owner": {
+            "type": "string"
+          },
+          "displayName": {
+            "type": "string"
+          },
+          "sessionToken": {
+            "type": "string"
+          },
+          "connectionStatus": {
+            "type": "string"
+          },
+          "connectionStatus_": {
+            "type": "string"
+          },
+          "lastKnownAvatarId": {
+            "type": "string"
+          },
+          "joinTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "leaveTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "finalScore": {
+            "type": "string"
+          },
+          "finalRank": {
+            "type": "string"
+          },
+          "reconnectExpiry": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "recordVersion": {
+            "type": "string"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "isActive": {
+            "type": "boolean"
+          }
+        }
+      },
+      "paging-object": {
+        "type": "object",
+        "properties": {
+          "pageNumber": {
+            "type": "number"
+          },
+          "pageRowCount": {
+            "type": "number"
+          },
+          "totalRowCount": {
+            "type": "number"
+          },
+          "pageCount": {
+            "type": "number"
+          }
+        }
+      }
+    }
+  }
+}
